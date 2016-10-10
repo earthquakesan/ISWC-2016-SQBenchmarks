@@ -1,0 +1,68 @@
+*******************************************************************
+************ THE SP^2B SPARQL PERFORMANCE BENCHMARK ***************
+*******************************************************************
+SP^2B is a Performance Benchmark for the SPARQL query language.
+The project at
+
+	http://dbis.informatik.uni-freiburg.de/index.php?project=SP2B
+
+provides more information on the benchmark.
+*******************************************************************
+
+=================================
+******* TABLE OF CONTENTS *******
+=================================
+=  1. Compiling the Source Code =
+=  2. Running the Generator     =
+=  3. Compile Options           =
+=  4. Documentation             =
+=  5. License                   =
+=================================
+
+
+1. Compiling the Source Code 
+----------------------------
+We provide a Makefile for compiling the project. All you need is
+a standard installation of build tools such as g++ and make.
+We have tested compilation under Windows using MinGW and MSYS [1].
+
+To compile from scratch, simply type 
+
+> make
+
+and wait for the executable sp2b_gen being build. When compiling
+under Windows, you might rename the executable 'sp2b_gen' to
+'sp2b_gen.exe' after compilation.
+
+
+2. Running the Data Generator 
+-----------------------------
+For instructions on how to run the data generator and command line
+options, see the README file at sp2b/bin/README. 
+
+
+3. Compile Options
+------------------
+You should not use optimization level -O3, since it might change
+the shape of the generated data (some floating point optimizations
+in this optimization level are no longer semantics-preserving).
+
+
+4. Documentation
+----------------
+A doxygen file (DOXYFILE) for generating the documentation is available
+in subdirectory ./doc. You may use the doxygen tool [2] to generate the
+documentation.
+
+
+5. License 
+----------
+The SP^2B data generator has been published under the Berkeley
+License and is open source. Detailed licensing information can
+be found in the attached COPYING file. 
+
+
+REFERENCES:
+-----------
+[1] http://www.mingw.org/
+[2] http://www.stack.nl/~dimitri/doxygen/
