@@ -100,5 +100,25 @@ Running SPARQL benchmark (need IGUANA benchmark):
 Nothing here yet
 ```
 
-## DBPSB
 ## FEASIBLE
+
+Generate queries:
+```
+make install
+make run
+```
+
+For custom input parameters:
+```
+java -jar feasible.jar -help
+```
+
+Running virtuoso docker with test data:
+```
+TODO
+```
+
+Running SPARQL benchmark (need IGUANA benchmark):
+```
+Nothing here yet
+```
