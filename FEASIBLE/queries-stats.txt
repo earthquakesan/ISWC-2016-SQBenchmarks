@@ -1,0 +1,101 @@
+#-------------------------------------------------------
+Query No: 1
+Query Type: SELECT
+Results Size: 8
+Basic Graph Patterns (BGPs): 1
+Triple Patterns: 1
+Join Vertices: 0
+Mean Join Vertices Degree: 0 
+Mean triple patterns selectivity: 0.08257198087292705
+UNION: No 
+DISTINCT: No 
+ORDER BY: No 
+REGEX: Yes 
+LIMIT: Yes 
+OFFSET: No 
+OPTIONAL: Yes 
+FILTER: Yes 
+GROUP BY: No 
+Query Execution Time (ms): 194
+Query String: SELECT++%3Fentity+%3Flabel1%0AWHERE%0A++%7B+OPTIONAL%0A++++++%7B+%3Fentity+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%3Flabel1%0A++++++++FILTER+regex%28str%28%3Flabel1%29%2C+%22amazon%22%2C+%22i%22%29%0A++++++%7D%0A++++FILTER+bound%28%3Flabel1%29%0A++++FILTER+isIRI%28%3Fentity%29%0A++%7D%0ALIMIT+++40
+#-------------------------------------------------------
+Query No: 2
+Query Type: SELECT
+Results Size: 28587
+Basic Graph Patterns (BGPs): 7
+Triple Patterns: 7
+Join Vertices: 0
+Mean Join Vertices Degree: 0 
+Mean triple patterns selectivity: 0.03636566234999443
+UNION: Yes 
+DISTINCT: Yes 
+ORDER BY: No 
+REGEX: Yes 
+LIMIT: No 
+OFFSET: No 
+OPTIONAL: Yes 
+FILTER: Yes 
+GROUP BY: No 
+Query Execution Time (ms): 4635
+Query String: PREFIX++ical%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F12%2Fcal%2Fical%23%3E%0APREFIX++dct%3A++%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0APREFIX++skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX++rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX++foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX++dc%3A+++%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0A%0ASELECT+DISTINCT++%3Fs+%3Ftype+%3Fname+%3FprefLabel%0AWHERE%0A++%7B+%3Fs+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23type%3E+%3Ftype%0A++++OPTIONAL%0A++++++%7B+++%7B+%3Fs+foaf%3Aname+%3Fname+%7D%0A++++++++UNION%0A++++++++++%7B+%3Fs+dc%3Atitle+%3Fname+%7D%0A++++++++UNION%0A++++++++++%7B+%3Fs+dct%3Atitle+%3Fname+%7D%0A++++++++UNION%0A++++++++++%7B+%3Fs+ical%3Asummary+%3Fname+%7D%0A++++++++UNION%0A++++++++++%7B+%3Fs+rdfs%3Alabel+%3Fname+%7D%0A++++++%7D%0A++++OPTIONAL%0A++++++%7B+%3Fs+skos%3AprefLabel+%3FprefLabel+%7D%0A++++FILTER+regex%28str%28%3Fs%29%2C+%22%5Ehttp%3A%2F%2Fdata.semanticweb.org%22%29%0A++++FILTER+%28+%21+regex%28str%28%3Fs%29%2C+%22%5Ehttp%3A%2F%2Fdata.semanticweb.org%2Fns%22%29+%29%0A++%7D
+#-------------------------------------------------------
+Query No: 3
+Query Type: SELECT
+Results Size: 2
+Basic Graph Patterns (BGPs): 7
+Triple Patterns: 8
+Join Vertices: 1
+Mean Join Vertices Degree: 2.0
+Mean triple patterns selectivity: 0.01686421134737342
+UNION: Yes 
+DISTINCT: Yes 
+ORDER BY: No 
+REGEX: No 
+LIMIT: No 
+OFFSET: No 
+OPTIONAL: Yes 
+FILTER: No 
+GROUP BY: No 
+Query Execution Time (ms): 23
+Query String: PREFIX++rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX++swrc%3A+%3Chttp%3A%2F%2Fswrc.ontoware.org%2Fontology%23%3E%0APREFIX++foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX++swc%3A++%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fns%2Fswc%2Fontology%23%3E%0APREFIX++dc%3A+++%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0A%0ASELECT+DISTINCT++%3Fabstract+%3Fkeyword+%3Fauthor_name%0AWHERE%0A++%7B+++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+swrc%3Aauthor+%3Fauthor+%7D%0A++++UNION%0A++++++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+foaf%3Amaker+%3Fauthor+%7D%0A++++%3Fauthor+foaf%3Aname+%3Fauthor_name%0A++++OPTIONAL%0A++++++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+swrc%3Aabstract+%3Fabstract+%7D%0A++++OPTIONAL%0A++++++%7B+++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+swrc%3Akeywords+%3Fkeyword+%7D%0A++++++++UNION%0A++++++++++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+dc%3Asubject+%3Fkeyword+%7D%0A++++++++UNION%0A++++++++++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Feswc%2F2014%2Fpaper%2Fdemo%2F38%3E+swc%3AhasTopic+%3Ftopic+.%0A++++++++++++%3Ftopic+rdfs%3Alabel+%3Fkeyword%0A++++++++++%7D%0A++++++%7D%0A++%7D
+#-------------------------------------------------------
+Query No: 4
+Query Type: SELECT
+Results Size: 10
+Basic Graph Patterns (BGPs): 3
+Triple Patterns: 4
+Join Vertices: 1
+Mean Join Vertices Degree: 2.0
+Mean triple patterns selectivity: 0.011008240919727338
+UNION: No 
+DISTINCT: Yes 
+ORDER BY: Yes 
+REGEX: No 
+LIMIT: Yes 
+OFFSET: No 
+OPTIONAL: Yes 
+FILTER: No 
+GROUP BY: No 
+Query Execution Time (ms): 31
+Query String: PREFIX++geo%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2003%2F01%2Fgeo%2Fwgs84_pos%23%3E%0APREFIX++swrc%3A+%3Chttp%3A%2F%2Fswrc.ontoware.org%2Fontology%23%3E%0APREFIX++ical%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F12%2Fcal%2Fical%23%3E%0APREFIX++rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX++owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX++swrc-ext%3A+%3Chttp%3A%2F%2Fwww.cs.vu.nl%2F%7Emcaklein%2Fonto%2Fswrc_ext%2F2005%2F05%23%3E%0APREFIX++rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX++foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX++swc%3A++%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fns%2Fswc%2Fontology%23%3E%0APREFIX++dc%3A+++%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0A%0ASELECT+DISTINCT++%3Fs+%3Ft+%3Fy+%3Fto+%3Fh%0AWHERE%0A++%7B+%3Fs+dc%3Atitle+%3Ft+.%0A++++%3Fs+swrc%3Ayear+%3Fy%0A++++OPTIONAL%0A++++++%7B+%3Fs+foaf%3Ahomepage+%3Fh+%7D%0A++++OPTIONAL%0A++++++%7B+%3Fs+foaf%3Atopic+%3Fto+%7D%0A++%7D%0AORDER+BY+DESC%28%3Fy%29%0ALIMIT+++10
+#-------------------------------------------------------
+Query No: 5
+Query Type: SELECT
+Results Size: 4
+Basic Graph Patterns (BGPs): 6
+Triple Patterns: 6
+Join Vertices: 0
+Mean Join Vertices Degree: 0 
+Mean triple patterns selectivity: 0.18936084828342428
+UNION: Yes 
+DISTINCT: Yes 
+ORDER BY: Yes 
+REGEX: No 
+LIMIT: No 
+OFFSET: No 
+OPTIONAL: Yes 
+FILTER: No 
+GROUP BY: No 
+Query Execution Time (ms): 23
+Query String: PREFIX++skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX++bibo%3A+%3Chttp%3A%2F%2Fpurl.org%2Fontology%2Fbibo%2F%3E%0APREFIX++rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX++foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX++swrcext%3A+%3Chttp%3A%2F%2Fwww.cs.vu.nl%2F%7Emcaklein%2Fonto%2Fswrc_ext%2F2005%2F05%23%3E%0A%0ASELECT+DISTINCT++%3Fpred+%3Fauthor_url+%3Fauthor_name+%3Fauthor_pref_label%0AWHERE%0A++%7B+GRAPH+%3Fgraph%0A++++++%7B+++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Fiswc%2F2010%2Fpaper%2F274%3E+bibo%3AauthorList+%3FauthorList+%7D%0A++++++++UNION%0A++++++++++%7B+%3Chttp%3A%2F%2Fdata.semanticweb.org%2Fconference%2Fiswc%2F2010%2Fpaper%2F274%3E+swrcext%3AauthorList+%3FauthorList+%7D%0A++++++++%3FauthorList+%3Fpred+%3Fauthor_url%0A++++++++++%7B+%3Fauthor_url+foaf%3Aname+%3Fauthor_name+%7D%0A++++++++UNION%0A++++++++++%7B+%3Fauthor_url+rdfs%3Alabel+%3Fauthor_name+%7D%0A++++++++OPTIONAL%0A++++++++++%7B+%3Fauthor_url+skos%3AprefLabel+%3Fauthor_pref_label+%7D%0A++++++%7D%0A++%7D%0AORDER+BY+%3Fpred
+#--end---
