@@ -21,7 +21,7 @@ Running SPARQL benchmark:
 ./testdriver -runs 500 -idir td_data -dg http://bsbm/ -mt 5 -u http://localhost:8890/sparql -udataset dataset_update.nt http://localhost:8890/sparql
 ```
 
-## SP2Bench
+## [SP2Bench](http://dbis.informatik.uni-freiburg.de/forschung/projekte/SP2B/)
 
 Running data generator:
 ```
@@ -38,9 +38,10 @@ docker run -it --name virtuoso-sp2bench -p 8890:8890 -p 1111:1111 -e DBA_PASSWOR
 
 Running SPARQL benchmark (need IGUANA benchmark):
 ```
+Nothing here yet
 ```
 
-## LUBM
+## [LUBM](http://swat.cse.lehigh.edu/projects/lubm/)
 
 The original generator does not include run instructions, we will use modified (and improved) version from [rvesse lubm-uba repository](https://github.com/rvesse/lubm-uba)
 
@@ -61,9 +62,43 @@ docker run -it --name virtuoso-lubm -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=db
 
 Running SPARQL benchmark (need IGUANA benchmark):
 ```
+Nothing here yet
 ```
 
 
-## WatDiv
+## [WatDiv](http://dsg.uwaterloo.ca/watdiv/)
+First install [Boost CPP library](http://www.boost.org/). After installation is successful export BOOST_HOME (the folder where you extracted archive):
+```
+export BOOST_HOME=/usr/local
+make
+```
+If you try to run watdiv binary from other folder, you will get segmentation fault (most likely because of hardcoded relative pathes). So you have to change to the folder where the binary reside. Also ```saved.txt``` can not be moved or removed during all other steps. Generate data:
+```
+cd bin/Release
+./watdiv -d $(pwd)/../../model/wsdbm-data-model.txt 1 > saved.nt
+```
+
+Generate queries:
+```
+./watdiv -q $(pwd)/../../model/wsdbm-data-model.txt $(pwd)/../../testsuite/* 1 1 > queries.txt
+```
+
+Generate query templates:
+```
+./watdiv -s $(pwd)/../../model/wsdbm-data-model.txt $(pwd)/saved.nt 100 100 > queries-templates.txt
+```
+
+Running virtuoso docker with test data:
+```
+mkdir -p db/toLoad
+cp saved.nt db/toLoad
+docker run -it --name virtuoso-watdiv -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://watdiv/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
+```
+
+Running SPARQL benchmark (need IGUANA benchmark):
+```
+Nothing here yet
+```
+
 ## DBPSB
 ## FEASIBLE
