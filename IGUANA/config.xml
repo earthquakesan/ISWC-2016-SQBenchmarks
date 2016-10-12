@@ -36,7 +36,7 @@
                 		<property name="update-user" value="0" />
                 		<property name="queries-path" value="swdf_queries.txt" />
                 		<property name="is-pattern" value="true" />
-                		<property name="timelimit" value="60000" />
+                		<property name="timelimit" value="5000" />
             		</testcase>
 
             	
