@@ -1,0 +1,15 @@
+# Maven Artifacts
+target/
+dependency-reduced-pom.xml
+
+# Eclipse Artifacts
+.project
+.classpath
+.settings/
+
+# Generator Artifacts
+log.txt
+University*.*
+Universities.*
+Universities-*
+*.log
