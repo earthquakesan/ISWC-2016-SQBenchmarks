@@ -1,6 +1,18 @@
 # [SPARQL Querying Benchmarks](https://sites.google.com/site/sqbenchmarks/)
 ## Materials for hands-on session
 
+**The hands-on session will be presented on Ubuntu 16.04 machine. If you want to follow, you need to install Linux system.**
+
+## installation
+
+Please do the following to ensure that you have all the necessary data fetched before hands-on session:
+* compile and package LUBM
+```
+cd lubm/rvesse-lubm
+mvn package
+```
+* Install [Boost CPP library](http://www.boost.org/) for WatDiv benchmark (see website for installation procedures, the libraries should be installed in /usr/local)
+
 ## [BSBM: Berlin SPARQL Benchmark](http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/)
 
 Running data generator:
@@ -36,11 +48,6 @@ cp dataset.n3 db/toLoad
 docker run -it --name virtuoso-sp2bench -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://sp2bench/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
-Running SPARQL benchmark (need IGUANA benchmark):
-```
-Nothing here yet
-```
-
 ## [LUBM](http://swat.cse.lehigh.edu/projects/lubm/)
 
 The original generator does not include run instructions, we will use modified (and improved) version from [rvesse lubm-uba repository](https://github.com/rvesse/lubm-uba)
@@ -59,12 +66,6 @@ mkdir -p db/toLoad
 cp generated/* db/toLoad
 docker run -it --name virtuoso-lubm -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://lubm/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
-
-Running SPARQL benchmark (need IGUANA benchmark):
-```
-Nothing here yet
-```
-
 
 ## [WatDiv](http://dsg.uwaterloo.ca/watdiv/)
 First install [Boost CPP library](http://www.boost.org/). After installation is successful export BOOST_HOME (the folder where you extracted archive):
@@ -95,11 +96,6 @@ cp saved.nt db/toLoad
 docker run -it --name virtuoso-watdiv -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://watdiv/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
-Running SPARQL benchmark (need IGUANA benchmark):
-```
-Nothing here yet
-```
-
 ## FEASIBLE
 
 Generate queries:
@@ -115,7 +111,9 @@ java -jar feasible.jar -help
 
 Running virtuoso docker with test data:
 ```
-TODO
+mkdir -p db/toLoad
+cp swdf.nt db/toLoad
+docker run -it --name virtuoso-feasible -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://feasible/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
 Running SPARQL benchmark (need IGUANA benchmark):
