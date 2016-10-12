@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iguana xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<databases>
+		
+		<database id="virtuoso_update" type="impl">
+			<endpoint uri="http://localhost:8890/sparql" />
+			<update-endpoint uri="http://localhost:8890/sparql" />
+			<user value="dba" />
+			<pwd value="dba" />
+		</database>
+
+		<database id="virtuoso" type="impl">
+			<endpoint uri="http://localhost:8890/sparql" />
+		</database>
+
+		<database id="swdf" type="impl">
+      <endpoint uri="http://data.semanticweb.org/sparql"/>
+		</database>
+	</databases>
+
+	<suite>
+		<random-function generate="false">
+			<percent value="1.0" />
+		</random-function>	
+		
+		<test-db type="choose" reference="swdf">
+			<db id="virtuoso" />
+		</test-db>
+
+		<warmup time="0" file-name="warmup.txt" />
+
+		<testcases>
+
+            		<testcase class="org.aksw.iguana.testcases.StressTestcase">
+               			<property name="sparql-user" value="1" />
+                		<property name="update-user" value="0" />
+                		<property name="queries-path" value="swdf_queries.txt" />
+                		<property name="is-pattern" value="true" />
+                		<property name="timelimit" value="60000" />
+            		</testcase>
+
+            	
+        	</testcases>
+	</suite>
+</iguana>
+
