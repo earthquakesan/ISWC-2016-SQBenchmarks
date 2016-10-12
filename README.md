@@ -15,7 +15,7 @@ mvn package
 * Install [Docker](https://docs.docker.com/engine/getstarted/step_one/)
 * Pull virtuoso docker image
 ```
-
+docker pull tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
 ## [BSBM: Berlin SPARQL Benchmark](http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/)
@@ -121,7 +121,8 @@ cp swdf.nt db/toLoad
 docker run -it --name virtuoso-feasible -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://feasible/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
-Running SPARQL benchmark (need IGUANA benchmark):
+Running SPARQL benchmark:
 ```
-Nothing here yet
+cd IGUANA
+make
 ```
