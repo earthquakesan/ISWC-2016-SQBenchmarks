@@ -12,6 +12,11 @@ cd lubm/rvesse-lubm
 mvn package
 ```
 * Install [Boost CPP library](http://www.boost.org/) for WatDiv benchmark (see website for installation procedures, the libraries should be installed in /usr/local)
+* Install [Docker](https://docs.docker.com/engine/getstarted/step_one/)
+* Pull virtuoso docker image
+```
+
+```
 
 ## [BSBM: Berlin SPARQL Benchmark](http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/)
 
