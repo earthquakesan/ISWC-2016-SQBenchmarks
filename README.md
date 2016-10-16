@@ -126,3 +126,28 @@ Running SPARQL benchmark:
 cd IGUANA
 make
 ```
+
+## Hands-on Task (should be around 20 minutes)
+
+## Generate queries for your custom use case
+
+We assume that you support your triple store development team by providing them custom benchmarks.
+From the talk with the lead of development yesterday, you understood that **DISTINCT** clause, and especially a combination with **ORDER BY** and **UNION**, performs rather poorly.
+They also requested you to benchmark the triplestore with the queries containing **LIMIT**, **OFFSET** clauses together with **REGEX**.
+Therefore, you will need to create queries which contain the following clauses:
+* **DISTINCT**
+* **DISTINCT**, **ORDER BY**, **UNION**
+* **LIMIT**, **OFFSET**, **REGEX**
+
+Being a SPARQL expert, you could create the queries yourself.
+However, you know that it will be better to reuse real queries from the query logs, which are available online.
+Being in an early development, you don't want to benchmark your triple store with a lot of data, therefore you decide to use ***Semantic Web Dog Food (SWDF)*** dataset.
+Fortunately, you found out recently that there is a tool, which can support you with selecting queries from a log file and it works with ***SWDF dataset***.
+To generate queries, you will use [FEASIBLE](http://feasible.aksw.org/) query generator.
+
+## Task steps
+
+* Open [FEASIBLE](http://feasible.aksw.org/) query generator and generate queries for the SPARQL clauses as described above. To decide which SPARQL features (i.e. basic graph patterns, join-vertices, result size etc.) are important for this benchmark, you will need to refer to the slides from the tutorial.
+* After you have your query mix, load virtuoso with the commands described in **FEASIBLE** section above.
+* Copy IGUANA folder and modify the config.xml to work with your query mix.
+* Run IGUANA with your custom query mix and analyze the results.
