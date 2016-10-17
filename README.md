@@ -101,7 +101,7 @@ cp saved.nt db/toLoad
 docker run -it --name virtuoso-watdiv -p 8890:8890 -p 1111:1111 -e DBA_PASSWORD=dba -e SPARQL_UPDATE=true -e DEFAULT_GRAPH=http://watdiv/ -v $(pwd)/db:/data tenforce/virtuoso:1.1.0-virtuoso7.2.4
 ```
 
-## FEASIBLE
+## [FEASIBLE](http://aksw.org/Projects/FEASIBLE.html)
 
 Generate queries:
 ```
